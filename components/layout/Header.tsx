@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -34,13 +33,13 @@ export default function Header() {
       {/* Barra principal */}
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 md:px-8">
         <Link href="/" className="flex flex-col items-center gap-1" onClick={() => setIsOpen(false)}>
-          <Image
-            src="/logo.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo.png`}
             alt="Perfil da Beleza — Clínica de Estética"
             width={56}
             height={48}
             className="object-contain"
-            priority
           />
           <div className="flex flex-col leading-tight items-center">
             <span className="text-[11px] font-bold tracking-widest text-[#5E2D53] uppercase">
