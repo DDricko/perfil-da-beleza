@@ -7,9 +7,9 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIAL_LINKS = {
-  whatsapp: 'https://wa.me/+5511974504495',
+  whatsapp: 'https://wa.me/5511974504495',
   facebook: '#',
-  instagram: 'perfildabeleza.clinica',
+  instagram: 'https://www.instagram.com/perfildabeleza.clinica',
   youtube: '#',
 } as const;
 
