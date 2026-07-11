@@ -7,7 +7,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIAL_LINKS = {
-  whatsapp: 'https://wa.me/5511974504495',
+  whatsapp: 'https://wa.me/5511974504495?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20na%20Perfil%20da%20Beleza%20para%20conhecer%20melhor%20seus%20tratamentos.',
   facebook: '#',
   instagram: 'https://www.instagram.com/perfildabeleza.clinica',
   youtube: '#',
