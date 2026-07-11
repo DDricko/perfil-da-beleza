@@ -1,29 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS, CLINIC_INFO } from '@/lib/constants';
-
-function ButterflyLogo() {
-  return (
-    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M22 22 C18 15 9 13 9 19 C9 23 15 25 22 22 Z"
-        stroke="#5E2D53" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M22 22 C26 15 35 13 35 19 C35 23 29 25 22 22 Z"
-        stroke="#5E2D53" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M22 22 C17 26 10 29 13 34 C15 37 19 32 22 22 Z"
-        stroke="#5E2D53" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M22 22 C27 26 34 29 31 34 C29 37 25 32 22 22 Z"
-        stroke="#5E2D53" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <ellipse cx="22" cy="22" rx="1.2" ry="2.2" fill="#5E2D53" />
-      <path d="M22 20 C20.5 17 18 15 17 13" stroke="#5E2D53" strokeWidth="1" strokeLinecap="round" />
-      <path d="M22 20 C23.5 17 26 15 27 13" stroke="#5E2D53" strokeWidth="1" strokeLinecap="round" />
-      <circle cx="17" cy="12.5" r="1" fill="#5E2D53" />
-      <circle cx="27" cy="12.5" r="1" fill="#5E2D53" />
-    </svg>
-  );
-}
 
 function HamburgerIcon() {
   return (
@@ -52,13 +33,20 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-zinc-100">
       {/* Barra principal */}
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 md:px-8">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-          <ButterflyLogo />
-          <div className="flex flex-col leading-tight">
-            <span className="text-[13px] font-bold tracking-widest text-zinc-800 uppercase">
+        <Link href="/" className="flex flex-col items-center gap-1" onClick={() => setIsOpen(false)}>
+          <Image
+            src="/logo.png"
+            alt="Perfil da Beleza — Clínica de Estética"
+            width={56}
+            height={48}
+            className="object-contain"
+            priority
+          />
+          <div className="flex flex-col leading-tight items-center">
+            <span className="text-[11px] font-bold tracking-widest text-[#5E2D53] uppercase">
               {CLINIC_INFO.name}
             </span>
-            <span className="text-[9px] tracking-[0.25em] text-zinc-500 uppercase">
+            <span className="text-[7.5px] tracking-[0.25em] text-[#5E2D53] uppercase">
               {CLINIC_INFO.subtitle}
             </span>
           </div>

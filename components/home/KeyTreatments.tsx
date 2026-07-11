@@ -1,3 +1,5 @@
+import AnimateOnView from '@/components/shared/AnimateOnView';
+
 function FacialIcon() {
   return (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,22 +91,25 @@ export default function KeyTreatments() {
   return (
     <section className="bg-[#FAFAF8] py-20">
       <div className="mx-auto max-w-6xl px-8">
-        {/* Two-line heading matching the image */}
-        <div className="mb-14 text-center">
+        {/* Título da seção */}
+        <AnimateOnView className="mb-14 text-center">
           <p className="text-base text-zinc-500">
             Conheça nossos principais tratamentos
           </p>
           <p className="mt-1 font-display text-2xl font-bold italic text-[#8C6E85]">
             key treatments
           </p>
-        </div>
+        </AnimateOnView>
+        {/* Cards com stagger esquerda → direita */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-          {TREATMENTS.map((t) => (
-            <div key={t.id} className="flex flex-col items-center gap-3 px-4 text-center">
-              <div className="mb-1">{t.icon}</div>
-              <h3 className="text-[15px] font-semibold text-zinc-800">{t.title}</h3>
-              <p className="text-sm leading-relaxed text-zinc-500">{t.description}</p>
-            </div>
+          {TREATMENTS.map((t, i) => (
+            <AnimateOnView key={t.id} delay={i * 150}>
+              <div className="flex flex-col items-center gap-3 px-4 text-center">
+                <div className="mb-1">{t.icon}</div>
+                <h3 className="text-[15px] font-semibold text-zinc-800">{t.title}</h3>
+                <p className="text-sm leading-relaxed text-zinc-500">{t.description}</p>
+              </div>
+            </AnimateOnView>
           ))}
         </div>
       </div>

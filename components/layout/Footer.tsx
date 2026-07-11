@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CLINIC_INFO, SOCIAL_LINKS, NAV_LINKS, FOOTER_SERVICES } from '@/lib/constants';
+import AnimateOnView from '@/components/shared/AnimateOnView';
 
 function WhatsAppIcon({ size = 18 }: { size?: number }) {
   return (
@@ -58,7 +59,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
             {/* Coluna 1 — Marca */}
-            <div className="flex flex-col gap-5">
+            <AnimateOnView delay={0}>
               <div>
                 <p className="font-display text-2xl font-bold text-white leading-none">
                   {CLINIC_INFO.name}
@@ -92,10 +93,10 @@ export default function Footer() {
                   <InstagramIcon size={16} />
                 </a>
               </div>
-            </div>
+            </AnimateOnView>
 
             {/* Coluna 2 — Navegação */}
-            <div>
+            <AnimateOnView delay={100}>
               <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
                 Navega&ccedil;&atilde;o
               </h3>
@@ -111,10 +112,10 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </AnimateOnView>
 
             {/* Coluna 3 — Serviços */}
-            <div>
+            <AnimateOnView delay={200}>
               <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
                 Servi&ccedil;os
               </h3>
@@ -130,10 +131,10 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </AnimateOnView>
 
             {/* Coluna 4 — Contato */}
-            <div>
+            <AnimateOnView delay={300}>
               <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
                 Contato
               </h3>
@@ -163,7 +164,7 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </AnimateOnView>
 
           </div>
         </div>
