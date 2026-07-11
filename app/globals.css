@@ -6,11 +6,25 @@
   --color-offwhite:  #F4F0EE;
   --color-gold:      #D4AF37;
   --color-dark:      #1A1A1A;
+  --ease-premium: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-display: var(--font-playfair);
+  --animate-ken-burns: kenBurns 12s ease-out forwards;
+}
+
+/* ── Hero load animations ─────────────────────────────── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Ken Burns (slow zoom) ───────────────────────────── */
+@keyframes kenBurns {
+  from { transform: scale(1);    }
+  to   { transform: scale(1.07); }
 }
 
 body {
