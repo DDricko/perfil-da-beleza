@@ -17,7 +17,7 @@ export default function TratamentosPage() {
           src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo.png`}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -top-10 right-0 h-[200%] w-auto opacity-[0.07] select-none"
+          className="md:hidden pointer-events-none absolute top-0 right-0 w-[220px] opacity-[0.07] select-none"
         />
 
         <div className="relative z-10 mx-auto max-w-6xl px-8 text-center">
