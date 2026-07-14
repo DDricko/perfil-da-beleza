@@ -19,6 +19,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Perfil da Beleza — Clínica de Estética',
   description: 'Tratamentos Estéticos Personalizados para Todos.',
+  icons: {
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo.png`,
+  },
 };
 
 export default function RootLayout({
