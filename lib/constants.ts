@@ -1,9 +1,9 @@
 export const NAV_LINKS = [
   { label: 'Início', href: '/' },
   { label: 'Tratamentos', href: '/tratamentos' },
-  { label: 'Sobre Nós', href: '/sobre-nos' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contato', href: '/contato' },
+  // { label: 'Sobre Nós', href: '/sobre-nos' },
+  // { label: 'Blog', href: '/blog' },
+  // { label: 'Contato', href: '/contato' },
 ] as const;
 
 export const SOCIAL_LINKS = {
