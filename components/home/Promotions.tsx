@@ -8,17 +8,19 @@ interface Promo {
   includes: string[];
   benefits: string[];
   price: string;
+  originalPrice?: string;
   priceNote?: string;
 }
 
 const PROMOS: Promo[] = [
   {
-    badge: 'FACIAL',
-    badgeColor: 'purple',
+    badge: 'EXCLUSIVO',
+    badgeColor: 'rose',
     title: 'Rejuvenescimento Facial Completo',
     includes: ['5 aplicações de colágeno'],
     benefits: ['Estimula colágeno', 'Reduz rugas', 'Hidratação profunda'],
     price: 'R$ 599,00',
+    originalPrice: 'R$ 700,00',
   },
   {
     badge: 'RELAX',
@@ -35,8 +37,8 @@ const PROMOS: Promo[] = [
     priceNote: 'sem juros',
   },
   {
-    badge: 'EXCLUSIVO',
-    badgeColor: 'rose',
+    badge: 'FACIAL',
+    badgeColor: 'purple',
     title: 'Rejuvenescimento Facial Exclusivo',
     includes: [
       '5 sessões de colágeno',
@@ -135,6 +137,11 @@ export default function Promotions() {
 
                 {/* Preço */}
                 <div className="mt-4 border-t border-zinc-100 pt-4">
+                  {promo.originalPrice && (
+                    <span className="block text-[13px] text-zinc-400 line-through">
+                      {promo.originalPrice}
+                    </span>
+                  )}
                   <span className="block text-[20px] font-bold text-[#5E2D53] leading-tight">
                     {promo.price}
                   </span>
