@@ -56,7 +56,7 @@ export default function Footer() {
         }}
       >
         <div className="mx-auto max-w-6xl px-8 py-14">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-[2fr_1fr]">
 
             {/* Coluna 1 — Marca */}
             <AnimateOnView delay={0}>
@@ -69,11 +69,11 @@ export default function Footer() {
                 </p>
                 <div className="mt-2 h-px w-10 bg-[#D4AF37]" />
               </div>
-              <p className="text-sm leading-relaxed text-zinc-400">
+              <p className="mt-sm text-sm leading-relaxed text-zinc-400">
                 A est&eacute;tica de excel&ecirc;ncia que valoriza sua beleza natural.
-                Tratamentos realizados com seriedade e sofistica&ccedil;&atilde;o.
+                <br/>Tratamentos realizados com seriedade e sofistica&ccedil;&atilde;o.
               </p>
-              <div className="flex gap-2">
+              <div className="mt-6 flex gap-2">
                 <a
                   href={SOCIAL_LINKS.whatsapp}
                   target="_blank"
@@ -96,7 +96,7 @@ export default function Footer() {
             </AnimateOnView>
 
             {/* Coluna 2 — Navegação */}
-            <AnimateOnView delay={100}>
+            {/* <AnimateOnView delay={100}>
               <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
                 Navega&ccedil;&atilde;o
               </h3>
@@ -112,10 +112,10 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </AnimateOnView>
+            </AnimateOnView> */}
 
             {/* Coluna 3 — Serviços */}
-            <AnimateOnView delay={200}>
+            {/* <AnimateOnView delay={200}>
               <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
                 Servi&ccedil;os
               </h3>
@@ -131,7 +131,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </AnimateOnView>
+            </AnimateOnView> */}
 
             {/* Coluna 4 — Contato */}
             <AnimateOnView delay={300}>

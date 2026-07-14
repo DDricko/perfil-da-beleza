@@ -5,7 +5,7 @@ const HERO_EASING = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[680px] bg-[#F4F0EE] overflow-hidden">
+    <section className="relative min-h-[480px] md:min-h-[680px] bg-[#F4F0EE] overflow-hidden">
       {/* Right side: model photo with Ken Burns */}
       <div className="absolute inset-y-0 right-0 w-[58%] hidden md:block overflow-hidden">
         <Image
@@ -35,8 +35,17 @@ export default function HeroSection() {
         }}
       />
 
+      {/* Marca d'água mobile — logo ao fundo superior direito */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo.png`}
+        alt=""
+        aria-hidden="true"
+        className="md:hidden pointer-events-none absolute top-0 right-0 w-[220px] opacity-[0.07] select-none"
+      />
+
       {/* Text content — sequential fade-in */}
-      <div className="relative z-10 mx-auto max-w-6xl px-8 py-20 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-8 py-14 md:py-32">
         <div className="max-w-[480px]">
           {/* 1 — Título: aparece primeiro */}
           <h1
