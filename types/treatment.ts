@@ -5,3 +5,12 @@ export interface Treatment {
   iconName: string;
   slug: string;
 }
+
+export interface TreatmentCategory {
+  id: string;
+  label: string;
+  accent: 'purple' | 'gold' | 'rose' | 'teal';
+  image: string;
+  description: string;
+  items: string[];
+}
