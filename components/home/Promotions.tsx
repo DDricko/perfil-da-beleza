@@ -1,5 +1,13 @@
 import AnimateOnView from '@/components/shared/AnimateOnView';
 import Button from '@/components/shared/Button';
+import { SOCIAL_LINKS } from '@/lib/constants';
+
+const WA_NUMBER = SOCIAL_LINKS.whatsapp.match(/wa\.me\/(\d+)/)?.[1] ?? '';
+
+function whatsappHref(promoTitle: string) {
+  const msg = `Olá! Tenho interesse na promoção *${promoTitle}*. Podem me passar mais detalhes e verificar disponibilidade?`;
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
 
 interface Promo {
   badge: string;
@@ -8,17 +16,19 @@ interface Promo {
   includes: string[];
   benefits: string[];
   price: string;
+  originalPrice?: string;
   priceNote?: string;
 }
 
 const PROMOS: Promo[] = [
   {
-    badge: 'FACIAL',
-    badgeColor: 'purple',
+    badge: 'EXCLUSIVO',
+    badgeColor: 'rose',
     title: 'Rejuvenescimento Facial Completo',
     includes: ['5 aplicações de colágeno'],
     benefits: ['Estimula colágeno', 'Reduz rugas', 'Hidratação profunda'],
     price: 'R$ 599,00',
+    originalPrice: 'R$ 700,00',
   },
   {
     badge: 'RELAX',
@@ -35,8 +45,8 @@ const PROMOS: Promo[] = [
     priceNote: 'sem juros',
   },
   {
-    badge: 'EXCLUSIVO',
-    badgeColor: 'rose',
+    badge: 'FACIAL',
+    badgeColor: 'purple',
     title: 'Rejuvenescimento Facial Exclusivo',
     includes: [
       '5 sessões de colágeno',
@@ -135,6 +145,11 @@ export default function Promotions() {
 
                 {/* Preço */}
                 <div className="mt-4 border-t border-zinc-100 pt-4">
+                  {promo.originalPrice && (
+                    <span className="block text-[13px] text-zinc-400 line-through">
+                      {promo.originalPrice}
+                    </span>
+                  )}
                   <span className="block text-[20px] font-bold text-[#5E2D53] leading-tight">
                     {promo.price}
                   </span>
@@ -147,7 +162,11 @@ export default function Promotions() {
 
                 {/* CTA */}
                 <div className="mt-4">
-                  <Button href="/contato" variant="outline" className="w-full text-[13px] py-2 px-4">
+                  <Button
+                    href={whatsappHref(promo.title)}
+                    variant="outline"
+                    className="w-full text-[13px] py-2 px-4"
+                  >
                     Quero aproveitar
                   </Button>
                 </div>
