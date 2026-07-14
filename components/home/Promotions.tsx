@@ -1,5 +1,13 @@
 import AnimateOnView from '@/components/shared/AnimateOnView';
 import Button from '@/components/shared/Button';
+import { SOCIAL_LINKS } from '@/lib/constants';
+
+const WA_NUMBER = SOCIAL_LINKS.whatsapp.match(/wa\.me\/(\d+)/)?.[1] ?? '';
+
+function whatsappHref(promoTitle: string) {
+  const msg = `Olá! Tenho interesse na promoção *${promoTitle}*. Podem me passar mais detalhes e verificar disponibilidade?`;
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
 
 interface Promo {
   badge: string;
@@ -154,7 +162,11 @@ export default function Promotions() {
 
                 {/* CTA */}
                 <div className="mt-4">
-                  <Button href="/contato" variant="outline" className="w-full text-[13px] py-2 px-4">
+                  <Button
+                    href={whatsappHref(promo.title)}
+                    variant="outline"
+                    className="w-full text-[13px] py-2 px-4"
+                  >
                     Quero aproveitar
                   </Button>
                 </div>
