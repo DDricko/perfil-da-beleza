@@ -1,8 +1,23 @@
-import { ButtonHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline';
-  href?: string;
+type ButtonVariant = 'primary' | 'outline';
+
+type LinkButtonProps = {
+  children: ReactNode;
+  variant?: ButtonVariant;
+  href: string;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+type NativeButtonProps = {
+  children: ReactNode;
+  variant?: ButtonVariant;
+  href?: undefined;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+type ButtonProps = LinkButtonProps | NativeButtonProps;
+
+function isExternalHref(href: string) {
+  return /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(href);
 }
 
 export default function Button({
@@ -21,8 +36,20 @@ export default function Button({
   };
 
   if (href) {
+    const { rel, target, ...anchorProps } =
+      props as AnchorHTMLAttributes<HTMLAnchorElement>;
+    const resolvedTarget = target ?? (isExternalHref(href) ? '_blank' : undefined);
+    const resolvedRel =
+      rel ?? (resolvedTarget === '_blank' ? 'noopener noreferrer' : undefined);
+
     return (
-      <a href={href} className={`${base} ${variants[variant]} ${className}`}>
+      <a
+        href={href}
+        target={resolvedTarget}
+        rel={resolvedRel}
+        className={`${base} ${variants[variant]} ${className}`}
+        {...anchorProps}
+      >
         {children}
       </a>
     );
