@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Button from '@/components/shared/Button';
+import { SOCIAL_LINKS } from '@/lib/constants';
 
 const HERO_EASING = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
@@ -73,7 +74,7 @@ export default function HeroSection() {
             className="mt-8"
             style={{ animation: `heroFadeUp 700ms ${HERO_EASING} 400ms both` }}
           >
-            <Button href="/contato">Agende Sua Avaliação</Button>
+            <Button href={SOCIAL_LINKS.whatsapp}>Agende Sua Avaliação</Button>
           </div>
         </div>
       </div>
